@@ -1,0 +1,22 @@
+managed;
+
+define behavior for Z_I_BREAKDOWN_REP alias Breakdown
+persistent table zbreakdown_rep
+lock master
+authorization master ( instance )
+{
+  field ( readonly ) RepId;
+
+  create;
+  update;
+  delete;
+
+  mapping for zbreakdown_rep
+  {
+    RepId = rep_id;
+    VehicleId = vehicle_id;
+    RepDate = rep_date;
+    Description = descr;
+    Status = status;
+  }
+}
